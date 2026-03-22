@@ -55,7 +55,7 @@ function generatenonlinearsimaltaneous() {
         a = Math.floor(Math.random() * 5) - 2;
     } while (a === 0 || a === 1);
 
-    let numerator = y1 - y2 - a*(x1*x1 - x2*x2);
+    let numerator = y1 - y2 - a * (x1 * x1 - x2 * x2);
     let denominator = x1 - x2;
 
     if (numerator % denominator !== 0) return generatenonlinearsimaltaneous();
@@ -194,7 +194,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            iscorrect = (approxequal(sol1[0], currentanswer[0][0]) && approxequal(sol1[1], currentanswer[0][1]) && approxequal(sol2[0], currentanswer[1][0]) && approxequal(sol2[1], currentanswer[1][1])) 
+            iscorrect = (approxequal(sol1[0], currentanswer[0][0]) && approxequal(sol1[1], currentanswer[0][1]) && approxequal(sol2[0], currentanswer[1][0]) && approxequal(sol2[1], currentanswer[1][1]))
                 || (approxequal(sol1[0], currentanswer[1][0]) && approxequal(sol1[1], currentanswer[1][1]) && approxequal(sol2[0], currentanswer[0][0]) && approxequal(sol2[1], currentanswer[0][1]));
         }
 

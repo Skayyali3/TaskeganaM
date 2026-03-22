@@ -3,26 +3,85 @@ body {
 }
 
 @keyframes colorShift {
-    5% { background: red; }
-    10% { background: orangered; }
-    15% { background: orange; }
-    20% { background: yellow; }
-    25% { background: greenyellow; }
-    30% { background: lime; }
-    35% { background: turquoise; }
-    40% { background: cyan; }
-    45% { background: cadetblue; }
-    50% { background: teal; }
-    55% { background: darkcyan; }
-    60% { background: blue; }
-    65% { background: blueviolet; }
-    70% { background: purple; }
-    75% { background: mediumvioletred; }
-    80% { background: magenta; }
-    85% { background: palevioletred; }
-    90% { background: pink; }
-    95% { background: violet; }
-    100% { background: deeppink; }
+    5% {
+        background: red;
+    }
+
+    10% {
+        background: orangered;
+    }
+
+    15% {
+        background: orange;
+    }
+
+    20% {
+        background: yellow;
+    }
+
+    25% {
+        background: greenyellow;
+    }
+
+    30% {
+        background: lime;
+    }
+
+    35% {
+        background: turquoise;
+    }
+
+    40% {
+        background: cyan;
+    }
+
+    45% {
+        background: cadetblue;
+    }
+
+    50% {
+        background: teal;
+    }
+
+    55% {
+        background: darkcyan;
+    }
+
+    60% {
+        background: blue;
+    }
+
+    65% {
+        background: blueviolet;
+    }
+
+    70% {
+        background: purple;
+    }
+
+    75% {
+        background: mediumvioletred;
+    }
+
+    80% {
+        background: magenta;
+    }
+
+    85% {
+        background: palevioletred;
+    }
+
+    90% {
+        background: pink;
+    }
+
+    95% {
+        background: violet;
+    }
+
+    100% {
+        background: deeppink;
+    }
 }
 
 h4 {
@@ -38,10 +97,10 @@ h4 {
 }
 
 #tasklist {
-    list-style-type: none;  
-    padding: 0;             
-    margin-top: 20px;            
-    margin-left: auto;      
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+    margin-left: auto;
     margin-right: auto;
     width: 90%;
     max-width: 600px;
@@ -60,52 +119,54 @@ h4 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     font-size: 16px;
 }
 
 .site-footer {
-  background-color: white;
-  margin-top: 3rem;
-  padding: 1rem 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.9rem;
-  color: #777;
-  border-top: 1px solid #e0e0e0;
+    background-color: white;
+    margin-top: 3rem;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #777;
+    border-top: 1px solid #e0e0e0;
 }
 
 .footer-left,
 .footer-right {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .site-footer a {
-  color: inherit;
-  text-decoration: none;
-  font-weight: 500;
+    color: inherit;
+    text-decoration: none;
+    font-weight: 500;
 }
 
 .site-footer a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .github-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
 }
 
 .github-icon {
-  width: 16px;
-  height: 16px;
-  fill: currentColor;
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
 }
 
-#task-input, #priority, #add-task {
+#task-input,
+#priority,
+#add-task {
     width: 80%;
     max-width: 400px;
 }
@@ -124,5 +185,11 @@ h4 {
     #tasklist li {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .site-footer {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
     }
 }
