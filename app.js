@@ -70,11 +70,14 @@ function generatelinearsimaltaneous() {
     let x = Math.floor(Math.random() * 10) - 5;
     let y = Math.floor(Math.random() * 10) - 5;
 
-    let a1 = Math.floor(Math.random() * 5) + 1;
-    let b1 = Math.floor(Math.random() * 5) + 1;
+    let a1, b1, a2, b2;
+    do {
+        a1 = Math.floor(Math.random() * 5) + 1;
+        b1 = Math.floor(Math.random() * 5) + 1;
 
-    let a2 = Math.floor(Math.random() * 5) + 1;
-    let b2 = Math.floor(Math.random() * 5) + 1;
+        a2 = Math.floor(Math.random() * 5) + 1;
+        b2 = Math.floor(Math.random() * 5) + 1;
+    } while (a1 * b1 === a2 * b2);
 
     let c1 = a1 * x + b1 * y;
     let c2 = a2 * x + b2 * y;
@@ -83,7 +86,7 @@ function generatelinearsimaltaneous() {
 }
 
 function parseXY(str) {
-    const parts = str.split(',').map(Number);
+    const parts = str.split(',').map(s => Number(s.trim()));
     if (parts.length !== 2 || parts.some(isNaN)) return null;
     return parts;
 }
