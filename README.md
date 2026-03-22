@@ -12,6 +12,9 @@ Welcome to the TaskeganaM project which is a local server-less task manager, exc
 
 * Bootstrap
 
+## Live demo:
+Check out the live app here: **[TaskeganaM](https://taskeganam.vercel.app/)**
+
 ## How to Open Locally:
 
 ### 1. Clone the repo:
