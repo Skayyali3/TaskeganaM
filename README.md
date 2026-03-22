@@ -27,7 +27,9 @@ cd TaskeganaM
 ### 2. Open index.html in Browser:
 
 ```bash
-start index.html
+xdg-open index.html # Linux
+start index.html # Windows
+open index.html # macOS
 ```
 
 ## Licensing
