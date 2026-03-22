@@ -1,6 +1,6 @@
 # TaskeganaM - The Task Manager from Hell
 
-Welcome to the TaskeganaM project which is a local task manager, except it frustrates users by forcing math equations to be solved if you want to delete a task, a randomly moving add task button, and A LOT of flashing colours its blinding.
+Welcome to the TaskeganaM project which is a local server-less task manager, except it frustrates users by forcing math equations to be solved if you want to delete a task, a randomly moving add task button, and A LOT of flashing colours its blinding.
 
 ## Technologies Used:
 
@@ -26,6 +26,10 @@ cd TaskeganaM
 ```bash
 start index.html
 ```
+
+## Licensing
+
+This project is licensed under the MIT license, check out the **[license file](LICENSE)** for details.
 
 ## Author:
 **Saif Kayyali**
