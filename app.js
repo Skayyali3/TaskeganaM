@@ -41,11 +41,10 @@ function generatequadratic() {
 }
 
 function generatenonlinearsimaltaneous() {
-    let x1 = Math.floor(Math.random() * 6) - 3;
+    let x1 = Math.floor(Math.random() * 7) - 3;
     let x2;
-
     do {
-        x2 = Math.floor(Math.random() * 6) - 3;
+        x2 = Math.floor(Math.random() * 7) - 3;
     } while (x2 === x1);
 
     let y1 = x1 * x1;
@@ -53,13 +52,18 @@ function generatenonlinearsimaltaneous() {
 
     let a;
     do {
-        a = Math.floor(Math.random() * 3) + 1;
-    } while (a === 1);
+        a = Math.floor(Math.random() * 5) - 2;
+    } while (a === 0 || a === 1);
 
-    let b = -a * (x1 + x2);
-    let c = a * x1 * x2;
+    let numerator = y1 - y2 - a*(x1*x1 - x2*x2);
+    let denominator = x1 - x2;
 
-    return { a, b, c, answers: [[x1, y1],[x2, y2]] };
+    if (numerator % denominator !== 0) return generatenonlinearsimaltaneous();
+    let b = numerator / denominator;
+
+    let c = y1 - a * x1 * x1 - b * x1;
+
+    return { a, b, c, answers: [[x1, y1], [x2, y2]] };
 }
 
 function generatelinearsimaltaneous() {
@@ -76,6 +80,12 @@ function generatelinearsimaltaneous() {
     let c2 = a2 * x + b2 * y;
 
     return { a1, b1, c1, a2, b2, c2, answers: [x, y] };
+}
+
+function parseXY(str) {
+    const parts = str.split(',').map(Number);
+    if (parts.length !== 2 || parts.some(isNaN)) return null;
+    return parts;
 }
 
 function approxequal(a, b, tolerance = 0.01) {
@@ -108,8 +118,8 @@ function nextquestion() {
 
         question.innerText = `Solve:\ny = x²\ny = ${a}x² + ${b}x + ${c}`;
 
-        input1.placeholder = "Value of x";
-        input2.placeholder = "Value of y";
+        input1.placeholder = "First solution: (x,y)";
+        input2.placeholder = "Second solution: (x,y)";
 
         input2.style.display = "block";
     } else if (currentpriority === "medium") {
@@ -171,17 +181,24 @@ window.addEventListener("DOMContentLoaded", () => {
         let iscorrect = false;
 
         if (currentpriority === "high") {
-            if (isNaN(val1) || isNaN(val2)) {
-                alert("Enter the x and y values, you idiot.");
+            const val1 = document.getElementById("answer1").value.trim();
+            const val2 = document.getElementById("answer2").value.trim();
+
+            const sol1 = parseXY(val1);
+            const sol2 = parseXY(val2);
+
+            if (!sol1 || !sol2) {
+                alert(`Enter each solution as "x,y" you nitwit.`);
                 return;
             }
 
-            iscorrect = (approxequal(val1, currentanswer[0][0]) && approxequal(val2, currentanswer[0][1])) || (approxequal(val1, currentanswer[1][0]) && approxequal(val2, currentanswer[1][1]));
+            iscorrect = (approxequal(sol1[0], currentanswer[0][0]) && approxequal(sol1[1], currentanswer[0][1]) && approxequal(sol2[0], currentanswer[1][0]) && approxequal(sol2[1], currentanswer[1][1])) 
+                || (approxequal(sol1[0], currentanswer[1][0]) && approxequal(sol1[1], currentanswer[1][1]) && approxequal(sol2[0], currentanswer[0][0]) && approxequal(sol2[1], currentanswer[0][1]));
         }
 
         else if (currentpriority === "medium") {
             if (isNaN(val1) || isNaN(val2)) {
-                alert("Enter both x values, you fathead.");g
+                alert("Enter both x values, you fathead."); g
                 return;
             }
 
