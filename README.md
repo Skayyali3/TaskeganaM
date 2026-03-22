@@ -1,3 +1,31 @@
 # TaskeganaM - The Task Manager from Hell
 
-Welcome to the TaskeganaM project which is a task manager, except it frustrates users by forcing math equations to be solved if you want to delete a task, a randomly moving add task button, and A LOT of flashing colours its blinding.
+Welcome to the TaskeganaM project which is a local task manager, except it frustrates users by forcing math equations to be solved if you want to delete a task, a randomly moving add task button, and A LOT of flashing colours its blinding.
+
+## Technologies Used:
+
+* Client-side JS
+
+* CSS
+
+* HTML5
+
+* Bootstrap
+
+## How to Open Locally:
+
+### 1. Clone the repo:
+
+```bash
+git clone https://github.com/Skayyali3/TaskeganaM.git
+cd TaskeganaM
+```
+
+### 2. Open index.html in Browser:
+
+```bash
+start index.html
+```
+
+## Author:
+**Saif Kayyali**
