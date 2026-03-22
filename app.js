@@ -86,6 +86,14 @@ function generatelinearsimaltaneous() {
 }
 
 function parseXY(str) {
+    str = str.replace(/[()\[\]]/g, "").trim();
+
+    if (str.includes('x') && str.includes('y')) {
+        const match = str.match(/x\s*[:=]?\s*([-+]?\d*\.?\d+)\s*y\s*[:=]?\s*([-+]?\d*\.?\d+)/i);
+        if (match) return [Number(match[1]), Number(match[2])];
+        return null;
+    }
+    
     const parts = str.split(',').map(s => Number(s.trim()));
     if (parts.length !== 2 || parts.some(isNaN)) return null;
     return parts;
