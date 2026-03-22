@@ -1,0 +1,63 @@
+body {
+    animation: colorShift 1s infinite;
+}
+
+@keyframes colorShift {
+    5% { background: red; }
+    10% { background: orangered; }
+    15% { background: orange; }
+    20% { background: yellow; }
+    25% { background: greenyellow; }
+    30% { background: lime; }
+    35% { background: turquoise; }
+    40% { background: cyan; }
+    45% { background: cadetblue; }
+    50% { background: teal; }
+    55% { background: darkcyan; }
+    60% { background: blue; }
+    65% { background: blueviolet; }
+    70% { background: purple; }
+    75% { background: mediumvioletred; }
+    80% { background: magenta; }
+    85% { background: palevioletred; }
+    90% { background: pink; }
+    95% { background: violet; }
+    100% { background: deeppink; }
+}
+
+h4 {
+    text-align: center;
+}
+
+#tasks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#tasklist {
+    list-style-type: none;  
+    padding: 0;             
+    margin-top: 20px;
+    width: 50%;             
+    margin-left: auto;      
+    margin-right: auto;
+}
+
+#priority-selector {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#tasklist li {
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255,255,255,0.2);
+    font-size: 16px;
+}
+
