@@ -171,7 +171,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const addbutton = document.getElementById("add-task");
     addbutton.addEventListener("mouseover", () => {
-        addbutton.style.transform = `translate(${Math.random() * 50}px, ${Math.random() * 50}px)`;
+        let xaxis = Math.random() * window.innerWidth / 2;
+        let yaxis = Math.random() * window.innerHeight / 2;
+        addbutton.style.transform = `translate(${xaxis}px, ${yaxis}px)`;
     });
 
     document.getElementById("submit-answer").addEventListener("click", () => {
