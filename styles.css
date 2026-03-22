@@ -1,5 +1,5 @@
 body {
-    animation: colorShift 1s infinite;
+    animation: colorShift 5s infinite;
 }
 
 @keyframes colorShift {
