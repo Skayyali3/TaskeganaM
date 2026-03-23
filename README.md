@@ -1,14 +1,12 @@
 # TaskeganaM - The Task Manager from Hell
 
-Welcome to the TaskeganaM project which is a local server-less task manager, except it frustrates users by forcing math equations to be solved if you want to delete a task, a randomly moving add task button, and A LOT of flashing colours its blinding.
+Welcome to the TaskeganaM project which is a server-less task manager, except it frustrates users by forcing math equations to be solved if you want to delete a task, a randomly moving add task button, and A LOT of flashing colours its blinding.
 
 ## Technologies Used:
 
-* Client-side JS
+* Client-side **JavaScript**
 
-* CSS
-
-* HTML5
+* **CSS/HTML**
 
 * Bootstrap
 

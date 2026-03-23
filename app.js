@@ -1,9 +1,10 @@
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 let currentstep = 0;
 let correct = 0;
-let currenttaskindex = null;
+let currentTaskIndex = null;
 let currentpriority = null;
 let currentanswer = null;
+let modal;
 
 function savetasks() {
     localStorage.setItem("tasks", JSON.stringify(tasks))
@@ -47,23 +48,29 @@ function generatenonlinearsimaltaneous() {
         x2 = Math.floor(Math.random() * 7) - 3;
     } while (x2 === x1);
 
-    let y1 = x1 * x1;
-    let y2 = x2 * x2;
+    let a1 = Math.floor(Math.random() * 5) + 1;
+    let b1 = Math.floor(Math.random() * 5) - 2;
+    let c1 = Math.floor(Math.random() * 10) - 5;
 
-    let a;
+    let y1 = a1 * x1 * x1 + b1 * x1 + c1;
+    let y2 = a1 * x2 * x2 + b1 * x2 + c1;
+
+    let a2;
     do {
-        a = Math.floor(Math.random() * 5) - 2;
-    } while (a === 0 || a === 1);
+        a2 = Math.floor(Math.random() * 5) - 2;
+    } while (a2 === a1);
 
-    let numerator = y1 - y2 - a * (x1 * x1 - x2 * x2);
+    let numerator = y1 - y2 - a2 * (x1 * x1 - x2 * x2);
     let denominator = x1 - x2;
 
-    if (numerator % denominator !== 0) return generatenonlinearsimaltaneous();
-    let b = numerator / denominator;
+    if (denominator === 0 || numerator % denominator !== 0) {
+        return generatenonlinearsimaltaneous();
+    }
 
-    let c = y1 - a * x1 * x1 - b * x1;
+    let b2 = numerator / denominator;
+    let c2 = y1 - a2 * x1 * x1 - b2 * x1;
 
-    return { a, b, c, answers: [[x1, y1], [x2, y2]] };
+    return { a1, b1, c1, a2, b2, c2, answers: [[x1, y1], [x2, y2]]};
 }
 
 function generatelinearsimaltaneous() {
@@ -106,7 +113,7 @@ function approxequal(a, b, tolerance = 0.01) {
 function attemptdelete(index, priority) {
     currentstep = 0;
     correct = 0;
-    currenttaskindex = index;
+    currentTaskIndex = index;
     currentpriority = priority;
 
     nextquestion();
@@ -127,7 +134,7 @@ function nextquestion() {
         const { a, b, c, answers } = generatenonlinearsimaltaneous();
         currentanswer = answers;
 
-        question.innerText = `Solve:\ny = x²\ny = ${a}x² + ${b}x + ${c}`;
+        question.innerText = `Solve:\ny = ${a1}x² + ${b1}x + ${c1}\ny = ${a2}x² + ${b2}x + ${c2}`;
 
         input1.placeholder = "First solution: (x,y)";
         input2.placeholder = "Second solution: (x,y)";
@@ -175,8 +182,6 @@ function rendertasks() {
     });
 }
 
-let modal;
-
 window.addEventListener("DOMContentLoaded", () => {
     modal = new bootstrap.Modal(document.getElementById("mathmodal"));
 
@@ -201,7 +206,7 @@ window.addEventListener("DOMContentLoaded", () => {
             const sol2 = parseXY(val2);
 
             if (!sol1 || !sol2) {
-                alert(`Enter each solution as "x,y" you nitwit.`);
+                alert(`Enter each solution as "x, y" you nitwit.`);
                 return;
             }
 
@@ -215,7 +220,8 @@ window.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            iscorrect = (approxequal(val1, currentanswer[0]) && approxequal(val2, currentanswer[1])) || (approxequal(val1, currentanswer[1]) && approxequal(val2, currentanswer[0]));
+            iscorrect = (approxequal(val1, currentanswer[0]) && approxequal(val2, currentanswer[1])) 
+                || (approxequal(val1, currentanswer[1]) && approxequal(val2, currentanswer[0]));
         }
 
         else {
@@ -233,7 +239,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
             if (currentstep === 3) {
                 modal.hide();
-                deletetasks(currenttaskindex);
+                deletetasks(currentTaskIndex);
             } else {
                 nextquestion();
             }
