@@ -60,7 +60,7 @@ function generate_quadratic() {
     return { a, b, c, answers: [x1, x2] };
 }
 
-function generate_nonlinear_simaltaneous() {
+function generate_nonlinear_simaltaneous(attempts = 0) {
     let x1 = Math.floor(Math.random() * 7) - 3;
     let x2;
     do {
@@ -82,12 +82,20 @@ function generate_nonlinear_simaltaneous() {
     let numerator = y1 - y2 - a2 * (x1 * x1 - x2 * x2);
     let denominator = x1 - x2;
 
-    if (denominator === 0 || numerator % denominator !== 0) {
-        return generate_nonlinear_simaltaneous();
+    if ((denominator === 0 || numerator % denominator !== 0) && attempts <= 20) {
+        return generate_nonlinear_simaltaneous(attempts + 1);
     }
 
     let b2 = numerator / denominator;
     let c2 = y1 - a2 * x1 * x1 - b2 * x1;
+
+    if (attempts > 20) {
+        a1 = 3; b1 = 1; c1 = -5;
+        a2 = 2; b2 = 2; c2 = 1;
+        x1 = 3; x2 = -2;
+        y1 = a1 * x1 * x1 + b1 * x1 + c1;
+        y2 = a2 * x2 * x2 + b2 * x2 + c2;
+    }
 
     return { a1, b1, c1, a2, b2, c2, answers: [[x1, y1], [x2, y2]] };
 }
