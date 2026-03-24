@@ -111,7 +111,7 @@ function generate_linear_simaltaneous() {
 
         a2 = Math.floor(Math.random() * 5) + 1;
         b2 = Math.floor(Math.random() * 5) + 1;
-    } while (a1 * b1 === a2 * b2);
+    } while (a1 * b2 === a2 * b1);
 
     let c1 = a1 * x + b1 * y;
     let c2 = a2 * x + b2 * y;
