@@ -77,7 +77,7 @@ function generate_nonlinear_simaltaneous(attempts = 0) {
     let a2;
     do {
         a2 = Math.floor(Math.random() * 5) - 2;
-    } while (a2 === a1);
+    } while (a2 === a1 || a2 === 0);
 
     let numerator = y1 - y2 - a2 * (x1 * x1 - x2 * x2);
     let denominator = x1 - x2;
