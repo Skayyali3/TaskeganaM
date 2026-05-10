@@ -40,6 +40,19 @@
 </head>
 
 <body>
+
+    <div id="safety-modal"
+        style="position:fixed; top:0; left:0; width:100%; height:100%; background:black; color:white; z-index:10000; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:20px;">
+        <h1 style="color:red;">WARNING</h1>
+        <p>TaskeganaM contains rapid flashing lights and aggressive color shifts.</p>
+        <p>Do you wish to proceed to the full experience, or are you a coward?</p>
+        <div style="margin-top:20px;">
+            <button id="btn-flash" class="btn btn-danger" style="margin-right:10px;">I am not a coward (Flash
+                Mode)</button>
+            <button id="btn-safe" class="btn btn-secondary">I am a coward (Safe Mode)</button>
+        </div>
+    </div>
+
     <img src="images/icon.png" style="display: block; margin-left: auto; margin-right: auto;" height="10%" width="10%"
         alt="icon">
     <h4>Welcome to TaskeganaM, The Task Manager from Hell</h4>

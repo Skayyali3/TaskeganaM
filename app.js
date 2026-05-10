@@ -195,6 +195,20 @@ function get_next_question() {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
+    const safetyModal = document.getElementById('safety-modal');
+    
+    document.getElementById('btn-flash').addEventListener('click', () => {
+        document.body.classList.add('flash-mode-active');
+        safetyModal.style.display = 'none';
+        alert("If you insist.. enjoy losing your eyes!")
+    });
+
+    document.getElementById('btn-safe').addEventListener('click', () => {
+        document.body.classList.add('safe-mode-active');
+        safetyModal.style.display = 'none';
+        alert("You really are a coward, well enjoy the puke green look!");
+    });
+
     modal = new bootstrap.Modal(document.getElementById("mathmodal"));
 
     const addbutton = document.getElementById("add-task");

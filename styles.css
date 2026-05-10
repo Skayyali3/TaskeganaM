@@ -1,5 +1,19 @@
 body {
+    transition: background 0.3s ease;
+}
+
+.flash-mode-active {
     animation: colorShift 5s infinite;
+}
+
+.safe-mode-active {
+    background-color: #556B2F !important;
+    color: #FF00FF !important;
+}
+
+.safe-mode-active #tasklist li {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-color: #00FF00;
 }
 
 @keyframes colorShift {
